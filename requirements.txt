@@ -1,0 +1,12 @@
+pandas
+numpy
+scikit-learn
+lightgbm
+xgboost
+shap
+fastapi
+uvicorn
+pydantic
+matplotlib
+seaborn
+graphviz

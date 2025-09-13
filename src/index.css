@@ -1,0 +1,47 @@
+/* PLEASE NOTE: THESE TAILWIND IMPORTS SHOULD NEVER BE DELETED */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* DO NOT DELETE THESE TAILWIND IMPORTS, OTHERWISE THE STYLING WILL NOT RENDER AT ALL */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+:root {
+  --background: #0A0F1A;
+  --accent-blue: #00BFFF;
+  --accent-teal: #33FFDD;
+  --alert-red: #FF4136;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: white;
+}
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 191, 255, 0.5);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 191, 255, 0.7);
+}
+/* Animation for glowing effect */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+  }
+}
