@@ -19,16 +19,16 @@ export function LiveCheckPage() {
   const [analysisState, setAnalysisState] = useState<AnalysisState>('idle');
   const [result, setResult] = useState<PredictionResult | null>(null);
   const [formData, setFormData] = useState({
-    BeneID_nunique: '',
-    ClaimID_count: '',
-    InscClaimAmtReimbursed_sum: '',
-    DeductibleAmtPaid_sum: '',
-    NoOfMonths_PartACov_mean: '',
-    NoOfMonths_PartBCov_mean: '',
-    IPAnnualReimbursementAmt_sum: '',
-    IPAnnualDeductibleAmt_sum: '',
-    OPAnnualReimbursementAmt_sum: '',
-    OPAnnualDeductibleAmt_sum: ''
+    BeneID: '',
+    ClaimID: '',
+    InscClaimAmtReimbursed: '',
+    DeductibleAmtPaid: '',
+    NoOfMonths_PartACov: '',
+    NoOfMonths_PartBCov: '',
+    IPAnnualReimbursementAmt: '',
+    IPAnnualDeductibleAmt: '',
+    OPAnnualReimbursementAmt: '',
+    OPAnnualDeductibleAmt: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,16 +49,16 @@ export function LiveCheckPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          BeneID_nunique: parseFloat(formData.BeneID_nunique),
-          ClaimID_count: parseFloat(formData.ClaimID_count),
-          InscClaimAmtReimbursed_sum: parseFloat(formData.InscClaimAmtReimbursed_sum),
-          DeductibleAmtPaid_sum: parseFloat(formData.DeductibleAmtPaid_sum),
-          NoOfMonths_PartACov_mean: parseFloat(formData.NoOfMonths_PartACov_mean),
-          NoOfMonths_PartBCov_mean: parseFloat(formData.NoOfMonths_PartBCov_mean),
-          IPAnnualReimbursementAmt_sum: parseFloat(formData.IPAnnualReimbursementAmt_sum),
-          IPAnnualDeductibleAmt_sum: parseFloat(formData.IPAnnualDeductibleAmt_sum),
-          OPAnnualReimbursementAmt_sum: parseFloat(formData.OPAnnualReimbursementAmt_sum),
-          OPAnnualDeductibleAmt_sum: parseFloat(formData.OPAnnualDeductibleAmt_sum),
+          BeneID: parseFloat(formData.BeneID),
+          ClaimID: parseFloat(formData.ClaimID),
+          InscClaimAmtReimbursed: parseFloat(formData.InscClaimAmtReimbursed),
+          DeductibleAmtPaid: parseFloat(formData.DeductibleAmtPaid),
+          NoOfMonths_PartACov: parseFloat(formData.NoOfMonths_PartACov),
+          NoOfMonths_PartBCov: parseFloat(formData.NoOfMonths_PartBCov),
+          IPAnnualReimbursementAmt: parseFloat(formData.IPAnnualReimbursementAmt),
+          IPAnnualDeductibleAmt: parseFloat(formData.IPAnnualDeductibleAmt),
+          OPAnnualReimbursementAmt: parseFloat(formData.OPAnnualReimbursementAmt),
+          OPAnnualDeductibleAmt: parseFloat(formData.OPAnnualDeductibleAmt),
         }),
       });
 
@@ -80,16 +80,16 @@ export function LiveCheckPage() {
     setAnalysisState('idle');
     setResult(null);
     setFormData({
-      BeneID_nunique: '',
-      ClaimID_count: '',
-      InscClaimAmtReimbursed_sum: '',
-      DeductibleAmtPaid_sum: '',
-      NoOfMonths_PartACov_mean: '',
-      NoOfMonths_PartBCov_mean: '',
-      IPAnnualReimbursementAmt_sum: '',
-      IPAnnualDeductibleAmt_sum: '',
-      OPAnnualReimbursementAmt_sum: '',
-      OPAnnualDeductibleAmt_sum: ''
+      BeneID: '',
+      ClaimID: '',
+      InscClaimAmtReimbursed: '',
+      DeductibleAmtPaid: '',
+      NoOfMonths_PartACov: '',
+      NoOfMonths_PartBCov: '',
+      IPAnnualReimbursementAmt: '',
+      IPAnnualDeductibleAmt: '',
+      OPAnnualReimbursementAmt: '',
+      OPAnnualDeductibleAmt: ''
     });
   };
   return <div className="min-h-screen pt-20 pb-12 px-4 relative">
@@ -119,64 +119,64 @@ export function LiveCheckPage() {
         }}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div>
-                  <label htmlFor="BeneID_nunique" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="BeneID" className="block text-sm font-medium text-gray-300 mb-1">
                     Number of Unique Beneficiaries
                   </label>
-                  <input type="number" id="BeneID_nunique" name="BeneID_nunique" value={formData.BeneID_nunique} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 100" />
+                  <input type="number" id="BeneID" name="BeneID" value={formData.BeneID} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 100" />
                 </div>
                 <div>
-                  <label htmlFor="ClaimID_count" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="ClaimID" className="block text-sm font-medium text-gray-300 mb-1">
                     Total Number of Claims
                   </label>
-                  <input type="number" id="ClaimID_count" name="ClaimID_count" value={formData.ClaimID_count} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 500" />
+                  <input type="number" id="ClaimID" name="ClaimID" value={formData.ClaimID} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 500" />
                 </div>
                 <div>
-                  <label htmlFor="InscClaimAmtReimbursed_sum" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="InscClaimAmtReimbursed" className="block text-sm font-medium text-gray-300 mb-1">
                     Total Reimbursed Amount
                   </label>
-                  <input type="number" id="InscClaimAmtReimbursed_sum" name="InscClaimAmtReimbursed_sum" value={formData.InscClaimAmtReimbursed_sum} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 100000" />
+                  <input type="number" id="InscClaimAmtReimbursed" name="InscClaimAmtReimbursed" value={formData.InscClaimAmtReimbursed} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 100000" />
                 </div>
                 <div>
-                  <label htmlFor="DeductibleAmtPaid_sum" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="DeductibleAmtPaid" className="block text-sm font-medium text-gray-300 mb-1">
                     Total Deductible Paid
                   </label>
-                  <input type="number" id="DeductibleAmtPaid_sum" name="DeductibleAmtPaid_sum" value={formData.DeductibleAmtPaid_sum} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 20000" />
+                  <input type="number" id="DeductibleAmtPaid" name="DeductibleAmtPaid" value={formData.DeductibleAmtPaid} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 20000" />
                 </div>
                 <div>
-                  <label htmlFor="NoOfMonths_PartACov_mean" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="NoOfMonths_PartACov" className="block text-sm font-medium text-gray-300 mb-1">
                     Average Months Part A Coverage
                   </label>
-                  <input type="number" id="NoOfMonths_PartACov_mean" name="NoOfMonths_PartACov_mean" value={formData.NoOfMonths_PartACov_mean} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 10" />
+                  <input type="number" id="NoOfMonths_PartACov" name="NoOfMonths_PartACov" value={formData.NoOfMonths_PartACov} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 10" />
                 </div>
                 <div>
-                  <label htmlFor="NoOfMonths_PartBCov_mean" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="NoOfMonths_PartBCov" className="block text-sm font-medium text-gray-300 mb-1">
                     Average Months Part B Coverage
                   </label>
-                  <input type="number" id="NoOfMonths_PartBCov_mean" name="NoOfMonths_PartBCov_mean" value={formData.NoOfMonths_PartBCov_mean} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 8" />
+                  <input type="number" id="NoOfMonths_PartBCov" name="NoOfMonths_PartBCov" value={formData.NoOfMonths_PartBCov} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 8" />
                 </div>
                 <div>
-                  <label htmlFor="IPAnnualReimbursementAmt_sum" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="IPAnnualReimbursementAmt" className="block text-sm font-medium text-gray-300 mb-1">
                     Total IP Annual Reimbursement
                   </label>
-                  <input type="number" id="IPAnnualReimbursementAmt_sum" name="IPAnnualReimbursementAmt_sum" value={formData.IPAnnualReimbursementAmt_sum} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 50000" />
+                  <input type="number" id="IPAnnualReimbursementAmt" name="IPAnnualReimbursementAmt" value={formData.IPAnnualReimbursementAmt} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 50000" />
                 </div>
                 <div>
-                  <label htmlFor="IPAnnualDeductibleAmt_sum" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="IPAnnualDeductibleAmt" className="block text-sm font-medium text-gray-300 mb-1">
                     Total IP Annual Deductible
                   </label>
-                  <input type="number" id="IPAnnualDeductibleAmt_sum" name="IPAnnualDeductibleAmt_sum" value={formData.IPAnnualDeductibleAmt_sum} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 10000" />
+                  <input type="number" id="IPAnnualDeductibleAmt" name="IPAnnualDeductibleAmt" value={formData.IPAnnualDeductibleAmt} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 10000" />
                 </div>
                 <div>
-                  <label htmlFor="OPAnnualReimbursementAmt_sum" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="OPAnnualReimbursementAmt" className="block text-sm font-medium text-gray-300 mb-1">
                     Total OP Annual Reimbursement
                   </label>
-                  <input type="number" id="OPAnnualReimbursementAmt_sum" name="OPAnnualReimbursementAmt_sum" value={formData.OPAnnualReimbursementAmt_sum} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 30000" />
+                  <input type="number" id="OPAnnualReimbursementAmt" name="OPAnnualReimbursementAmt" value={formData.OPAnnualReimbursementAmt} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 30000" />
                 </div>
                 <div>
-                  <label htmlFor="OPAnnualDeductibleAmt_sum" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="OPAnnualDeductibleAmt" className="block text-sm font-medium text-gray-300 mb-1">
                     Total OP Annual Deductible
                   </label>
-                  <input type="number" id="OPAnnualDeductibleAmt_sum" name="OPAnnualDeductibleAmt_sum" value={formData.OPAnnualDeductibleAmt_sum} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 5000" />
+                  <input type="number" id="OPAnnualDeductibleAmt" name="OPAnnualDeductibleAmt" value={formData.OPAnnualDeductibleAmt} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg bg-[#0A0F1A] border border-[#00BFFF]/30 focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF] outline-none transition-colors" placeholder="e.g., 5000" />
                 </div>
               </div>
               <div className="flex justify-center">

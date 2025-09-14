@@ -25,16 +25,16 @@ with open('./models/shap_explainer.pkl', 'rb') as f:
 
 # Define input model based on aggregated features
 class PredictionInput(BaseModel):
-    BeneID_nunique: float
-    ClaimID_count: float
-    InscClaimAmtReimbursed_sum: float
-    DeductibleAmtPaid_sum: float
-    NoOfMonths_PartACov_mean: float
-    NoOfMonths_PartBCov_mean: float
-    IPAnnualReimbursementAmt_sum: float
-    IPAnnualDeductibleAmt_sum: float
-    OPAnnualReimbursementAmt_sum: float
-    OPAnnualDeductibleAmt_sum: float
+    BeneID: float
+    ClaimID: float
+    InscClaimAmtReimbursed: float
+    DeductibleAmtPaid: float
+    NoOfMonths_PartACov: float
+    NoOfMonths_PartBCov: float
+    IPAnnualReimbursementAmt: float
+    IPAnnualDeductibleAmt: float
+    OPAnnualReimbursementAmt: float
+    OPAnnualDeductibleAmt: float
 
 @app.post("/predict")
 def predict(input_data: PredictionInput):
