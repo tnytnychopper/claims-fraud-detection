@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from typing import List
 import pickle
 import pandas as pd
 
@@ -57,6 +58,49 @@ def predict(input_data: PredictionInput):
         "feature_names": data.columns.tolist()
     }
 
+@app.post("/bulk")
+def predict_bulk(providers: List[PredictionInput]):
+    # Convert list of providers to DataFrame
+    data = pd.DataFrame([provider.dict() for provider in providers])
+    
+    # Make predictions
+    predictions = model.predict(data)
+    probabilities = model.predict_proba(data)[:, 1]
+    
+    # SHAP explanations for all providers
+    shap_values = explainer(data)
+    
+    # Prepare results
+    results = []
+    for i in range(len(providers)):
+        results.append({
+            "provider_index": i,
+            "prediction": int(predictions[i]),
+            "probability": float(probabilities[i]),
+            "shap_values": shap_values.values[i].tolist(),
+            "base_value": float(shap_values.base_values[i]),
+        })
+    
+    # Summary statistics
+    fraud_count = sum(predictions)
+    total_count = len(predictions)
+    avg_probability = float(probabilities.mean())
+    
+    return {
+        "results": results,
+        "summary": {
+            "total_providers": total_count,
+            "fraud_detected": int(fraud_count),
+            "fraud_rate": float(fraud_count / total_count) if total_count > 0 else 0,
+            "average_probability": avg_probability,
+        },
+        "feature_names": data.columns.tolist()
+    }
+
 @app.get("/")
 def read_root():
     return {"message": "Healthcare Fraud Detection API is running"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
